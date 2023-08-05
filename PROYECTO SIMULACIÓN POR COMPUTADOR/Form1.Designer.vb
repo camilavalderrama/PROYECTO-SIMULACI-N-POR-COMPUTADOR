@@ -29,10 +29,11 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Angulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Velocidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Piso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,11 +95,21 @@ Partial Class Form1
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad})
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad, Me.Column1})
         Me.DataGridView2.Location = New System.Drawing.Point(1080, 48)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(244, 296)
         Me.DataGridView2.TabIndex = 14
+        '
+        'Angulo
+        '
+        Me.Angulo.HeaderText = "Angulo"
+        Me.Angulo.Name = "Angulo"
+        '
+        'Velocidad
+        '
+        Me.Velocidad.HeaderText = "Velocidad"
+        Me.Velocidad.Name = "Velocidad"
         '
         'Button1
         '
@@ -112,15 +123,10 @@ Partial Class Form1
         'BackgroundWorker1
         '
         '
-        'Angulo
+        'Column1
         '
-        Me.Angulo.HeaderText = "Angulo"
-        Me.Angulo.Name = "Angulo"
-        '
-        'Velocidad
-        '
-        Me.Velocidad.HeaderText = "Velocidad"
-        Me.Velocidad.Name = "Velocidad"
+        Me.Column1.HeaderText = "Altura"
+        Me.Column1.Name = "Column1"
         '
         'Form1
         '
@@ -160,4 +166,5 @@ Partial Class Form1
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Angulo As DataGridViewTextBoxColumn
     Friend WithEvents Velocidad As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
 End Class
