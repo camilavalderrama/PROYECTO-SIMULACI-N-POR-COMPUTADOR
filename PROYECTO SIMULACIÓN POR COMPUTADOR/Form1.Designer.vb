@@ -28,14 +28,14 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Piso = New System.Windows.Forms.PictureBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.xCirculo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.yCirculo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Angulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Velocidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Piso, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -72,15 +72,6 @@ Partial Class Form1
         Me.Piso.TabIndex = 9
         Me.Piso.TabStop = False
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.xCirculo, Me.yCirculo})
-        Me.DataGridView1.Location = New System.Drawing.Point(1083, 48)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(244, 296)
-        Me.DataGridView1.TabIndex = 11
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -103,15 +94,24 @@ Partial Class Form1
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "0"
         '
-        'xCirculo
+        'DataGridView2
         '
-        Me.xCirculo.HeaderText = "Angulo"
-        Me.xCirculo.Name = "xCirculo"
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad})
+        Me.DataGridView2.Location = New System.Drawing.Point(1079, 48)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(244, 296)
+        Me.DataGridView2.TabIndex = 14
         '
-        'yCirculo
+        'Angulo
         '
-        Me.yCirculo.HeaderText = "Velocidad"
-        Me.yCirculo.Name = "yCirculo"
+        Me.Angulo.HeaderText = "Angulo"
+        Me.Angulo.Name = "Angulo"
+        '
+        'Velocidad
+        '
+        Me.Velocidad.HeaderText = "Velocidad"
+        Me.Velocidad.Name = "Velocidad"
         '
         'Form1
         '
@@ -120,9 +120,9 @@ Partial Class Form1
         Me.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Piso)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
@@ -134,7 +134,7 @@ Partial Class Form1
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Piso, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -144,9 +144,9 @@ Partial Class Form1
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Piso As PictureBox
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents xCirculo As DataGridViewTextBoxColumn
-    Friend WithEvents yCirculo As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents Angulo As DataGridViewTextBoxColumn
+    Friend WithEvents Velocidad As DataGridViewTextBoxColumn
 End Class

@@ -5,7 +5,6 @@
     Dim x, y As Double
     Dim gBmp As Graphics
     Dim bmp As Bitmap
-    Dim firstPoint As Boolean = True
     Dim anguloActual As Double = 30 ' Ángulo inicial
     Dim prevX, prevY As Double ' Coordenadas del punto anterior
     Dim circleX, circleY As Integer ' Coordenadas del círculo
@@ -16,7 +15,8 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InicializarSimulacion()
         circleX = New Random().Next(200, 501) ' Entre 200 y 500
-        circleY = New Random().Next(100, 301) ' Entre 100 y 300
+        circleY = PictureBox1.Height - New Random().Next(10, 30) ' Entre 100 y 300, invertido
+        Console.WriteLine("X circulo: " & circleX & " Y circulo: " & circleY)
     End Sub
 
     Private Sub InicializarSimulacion()
@@ -42,12 +42,13 @@
         Dim distanciaMaximaX As Double = (Math.Pow(velocidadInicial, 2) * Math.Sin((anguloActual * 2) * Math.PI / 180)) / g ' Formula para saber la distancia maxima que se puede recorrer
 
         ' Condicional para saber si se interseca con el circulo, sabiendo que, se debe poner un limite de 10 pixeles, por el tamaño del circulo
-        If (((Math.Round(x) - circleX) <= 10 And (Math.Round(x) - circleX) >= 0) And (Math.Round(y) - circleY) <= 10 And (Math.Round(y) - circleY) >= 0) Then
+        If (((Math.Round(x) - circleX) <= 2 And (Math.Round(x) - circleX) >= 0) And (Math.Round(y) - circleY) <= 2 And (Math.Round(y) - circleY) >= -10) Then
             ' Validar que el valor del angulo y la velocidad no existan en la tabla
             Dim filaExistente As DataGridViewRow = BuscarFilaExistente(anguloActual, velocidadInicial)
             If filaExistente Is Nothing Then
                 ' Agregar ek valor a la tabla
-                DataGridView1.Rows.Add(anguloActual, velocidadInicial)
+
+                DataGridView2.Rows.Add(anguloActual, velocidadInicial)
                 ' Aumentar la cantidad de intersecciones
                 cantidadInterseccion += 1
             End If
@@ -93,12 +94,12 @@
 
     Private Sub PictureBox1_Paint(sender As Object, e As PaintEventArgs) Handles PictureBox1.Paint
         ' Dibujar el circulo en la posicion aleatoria
-        e.Graphics.FillEllipse(Brushes.Black, circleX, circleY, 10, 10)
+        e.Graphics.FillEllipse(Brushes.Black, circleX, circleY - 10, 10, 10)
     End Sub
 
     Private Function BuscarFilaExistente(angulo As Double, velocidad As Double) As DataGridViewRow
-        For Each fila As DataGridViewRow In DataGridView1.Rows
-            If fila.Cells("xCirculo").Value = anguloActual AndAlso fila.Cells("yCirculo").Value = velocidadInicial Then
+        For Each fila As DataGridViewRow In DataGridView2.Rows
+            If fila.Cells("Angulo").Value = anguloActual AndAlso fila.Cells("Velocidad").Value = velocidadInicial Then
                 Return fila
             End If
         Next
