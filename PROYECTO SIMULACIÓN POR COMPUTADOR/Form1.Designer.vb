@@ -29,15 +29,21 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Angulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Velocidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Xin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Yin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Piso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -56,18 +62,18 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 48)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1044, 565)
+        Me.PictureBox1.Size = New System.Drawing.Size(1038, 553)
         Me.PictureBox1.TabIndex = 10
         Me.PictureBox1.TabStop = False
         '
         'Piso
         '
         Me.Piso.BackgroundImage = CType(resources.GetObject("Piso.BackgroundImage"), System.Drawing.Image)
-        Me.Piso.Location = New System.Drawing.Point(12, 613)
+        Me.Piso.Location = New System.Drawing.Point(3, 3)
         Me.Piso.Name = "Piso"
-        Me.Piso.Size = New System.Drawing.Size(1044, 39)
+        Me.Piso.Size = New System.Drawing.Size(1038, 39)
         Me.Piso.TabIndex = 9
         Me.Piso.TabStop = False
         '
@@ -76,7 +82,7 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.WindowText
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(1096, 396)
+        Me.Label2.Location = New System.Drawing.Point(1092, 618)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(203, 22)
         Me.Label2.TabIndex = 12
@@ -87,7 +93,7 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.SystemColors.WindowText
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(1188, 430)
+        Me.Label3.Location = New System.Drawing.Point(1184, 652)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(21, 22)
         Me.Label3.TabIndex = 13
@@ -97,13 +103,10 @@ Partial Class Form1
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad, Me.Xin, Me.Yin})
-        Me.DataGridView2.Location = New System.Drawing.Point(1080, 48)
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(244, 296)
+        Me.DataGridView2.Size = New System.Drawing.Size(238, 471)
         Me.DataGridView2.TabIndex = 14
-        '
-        'BackgroundWorker1
-        '
         '
         'Angulo
         '
@@ -125,14 +128,63 @@ Partial Class Form1
         Me.Yin.HeaderText = "Yin"
         Me.Yin.Name = "Yin"
         '
+        'BackgroundWorker1
+        '
+        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(209, 9)
+        Me.Button1.AccessibleName = "Boton"
+        Me.Button1.Location = New System.Drawing.Point(637, 73)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(144, 30)
+        Me.Button1.Size = New System.Drawing.Size(190, 30)
         Me.Button1.TabIndex = 15
-        Me.Button1.Text = "Activar"
+        Me.Button1.Text = "Iniciar simulación"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox1, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 109)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1044, 559)
+        Me.TableLayoutPanel1.TabIndex = 16
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 1
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Piso, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(12, 667)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1044, 45)
+        Me.TableLayoutPanel2.TabIndex = 17
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel3.ColumnCount = 1
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.DataGridView2, 0, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1086, 109)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(244, 477)
+        Me.TableLayoutPanel3.TabIndex = 18
         '
         'Form1
         '
@@ -141,13 +193,13 @@ Partial Class Form1
         Me.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.TableLayoutPanel3)
+        Me.Controls.Add(Me.TableLayoutPanel2)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Piso)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Maiandra GD", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaption
         Me.Margin = New System.Windows.Forms.Padding(5)
@@ -157,6 +209,9 @@ Partial Class Form1
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Piso, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -174,4 +229,7 @@ Partial Class Form1
     Friend WithEvents Xin As DataGridViewTextBoxColumn
     Friend WithEvents Yin As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
 End Class

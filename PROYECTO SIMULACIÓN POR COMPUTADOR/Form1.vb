@@ -25,6 +25,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Inicia la simulación en un hilo de fondo usando BackgroundWorker
         BackgroundWorker1.RunWorkerAsync()
+        Button1.Enabled = False
     End Sub
 
     Private Sub InicializarSimulacion()
@@ -75,7 +76,7 @@ Public Class Form1
                                    DibujarTrayectorias(trayectorias)
                                End Sub)
 
-            If ((((Math.Round(x) - circleX) <= 10 And (Math.Round(x) - circleX) >= -1) And (Math.Round(y) - circleY) <= 10 And (Math.Round(y) - circleY) >= -10)) Then
+            If ((((Math.Round(x) - circleX) <= 10 And (Math.Round(x) - circleX) >= -10) And (Math.Round(y) - circleY) <= 10 And (Math.Round(y) - circleY) >= -10)) Then
                 ' Validar que el valor del angulo y la velocidad no existan en la tabla
                 Dim filaExistente As DataGridViewRow = BuscarFilaExistente(anguloActual, velocidadInicial)
                 If filaExistente Is Nothing Then

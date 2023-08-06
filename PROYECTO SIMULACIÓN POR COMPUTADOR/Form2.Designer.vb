@@ -44,10 +44,18 @@ Partial Class Form2
         Me.AlturaMin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TvMin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Xmin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Chart1
@@ -56,14 +64,14 @@ Partial Class Form2
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(249, 72)
+        Me.Chart1.Location = New System.Drawing.Point(3, 3)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(460, 280)
+        Me.Chart1.Size = New System.Drawing.Size(454, 285)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
         '
@@ -73,13 +81,14 @@ Partial Class Form2
         Me.Chart2.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(249, 437)
+        Me.Chart2.Location = New System.Drawing.Point(3, 3)
         Me.Chart2.Name = "Chart2"
         Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
         Me.Chart2.Series.Add(Series2)
-        Me.Chart2.Size = New System.Drawing.Size(460, 280)
+        Me.Chart2.Size = New System.Drawing.Size(454, 278)
         Me.Chart2.TabIndex = 1
         Me.Chart2.Text = "Chart2"
         '
@@ -87,18 +96,18 @@ Partial Class Form2
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad, Me.AlturaMax, Me.TiempoVuelo, Me.DisX})
-        Me.DataGridView1.Location = New System.Drawing.Point(740, 72)
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(460, 280)
+        Me.DataGridView1.Size = New System.Drawing.Size(391, 148)
         Me.DataGridView1.TabIndex = 2
         '
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AnguloMin, Me.VelocidadMin, Me.AlturaMin, Me.TvMin, Me.Xmin})
-        Me.DataGridView2.Location = New System.Drawing.Point(740, 437)
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(460, 280)
+        Me.DataGridView2.Size = New System.Drawing.Size(391, 185)
         Me.DataGridView2.TabIndex = 3
         '
         'Label1
@@ -115,7 +124,7 @@ Partial Class Form2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Maiandra GD", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(486, 380)
+        Me.Label2.Location = New System.Drawing.Point(486, 343)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(609, 32)
         Me.Label2.TabIndex = 5
@@ -125,56 +134,121 @@ Partial Class Form2
         '
         Me.Angulo.HeaderText = "Angulo"
         Me.Angulo.Name = "Angulo"
+        Me.Angulo.Width = 70
         '
         'Velocidad
         '
         Me.Velocidad.HeaderText = "Velocidad"
         Me.Velocidad.Name = "Velocidad"
+        Me.Velocidad.Width = 70
         '
         'AlturaMax
         '
         Me.AlturaMax.HeaderText = "AlturaMax"
         Me.AlturaMax.Name = "AlturaMax"
+        Me.AlturaMax.Width = 70
         '
         'TiempoVuelo
         '
         Me.TiempoVuelo.HeaderText = "Tv"
         Me.TiempoVuelo.Name = "TiempoVuelo"
+        Me.TiempoVuelo.Width = 70
         '
         'DisX
         '
         Me.DisX.HeaderText = "DisX"
         Me.DisX.Name = "DisX"
+        Me.DisX.Width = 70
         '
         'AnguloMin
         '
         Me.AnguloMin.HeaderText = "AnguloMin"
         Me.AnguloMin.Name = "AnguloMin"
-        Me.AnguloMin.Width = 40
+        Me.AnguloMin.Width = 70
         '
         'VelocidadMin
         '
         Me.VelocidadMin.HeaderText = "VelocidadMin"
         Me.VelocidadMin.Name = "VelocidadMin"
-        Me.VelocidadMin.Width = 40
+        Me.VelocidadMin.Width = 70
         '
         'AlturaMin
         '
         Me.AlturaMin.HeaderText = "AlturaMin"
         Me.AlturaMin.Name = "AlturaMin"
-        Me.AlturaMin.Width = 40
+        Me.AlturaMin.Width = 70
         '
         'TvMin
         '
         Me.TvMin.HeaderText = "TvMin"
         Me.TvMin.Name = "TvMin"
-        Me.TvMin.Width = 40
+        Me.TvMin.Width = 70
         '
         'Xmin
         '
         Me.Xmin.HeaderText = "DxMin"
         Me.Xmin.Name = "Xmin"
-        Me.Xmin.Width = 40
+        Me.Xmin.Width = 70
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Chart1, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(249, 49)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(460, 291)
+        Me.TableLayoutPanel1.TabIndex = 6
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 1
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Chart2, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(249, 389)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(460, 284)
+        Me.TableLayoutPanel2.TabIndex = 7
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel3.ColumnCount = 1
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.DataGridView1, 0, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(740, 52)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(397, 179)
+        Me.TableLayoutPanel3.TabIndex = 8
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel4.ColumnCount = 1
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.DataGridView2, 0, 0)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(743, 389)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 1
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(397, 191)
+        Me.TableLayoutPanel4.TabIndex = 9
         '
         'Form2
         '
@@ -182,12 +256,12 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GrayText
         Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.TableLayoutPanel4)
+        Me.Controls.Add(Me.TableLayoutPanel3)
+        Me.Controls.Add(Me.TableLayoutPanel2)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Chart2)
-        Me.Controls.Add(Me.Chart1)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -195,6 +269,10 @@ Partial Class Form2
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -216,4 +294,8 @@ Partial Class Form2
     Friend WithEvents AlturaMin As DataGridViewTextBoxColumn
     Friend WithEvents TvMin As DataGridViewTextBoxColumn
     Friend WithEvents Xmin As DataGridViewTextBoxColumn
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
 End Class

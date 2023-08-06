@@ -21,7 +21,7 @@
                     anguloTem = angulo1
                     velTem = velocidad1
                     TiempoVueloMax = (2 * velTem * Math.Sin(anguloTem * Math.PI / 180)) / 9.81
-                    DisMin = velTem * Math.Cos(anguloTem * Math.PI / 180) * TiempoVueloMax
+                    DisMax = velTem * Math.Cos(anguloTem * Math.PI / 180) * TiempoVueloMax
                 End If
                 If AlturaMaxima < alturaMinTem And angulo1 > 0 And velocidad1 > 0 Then
                     alturaMinTem = AlturaMaxima
