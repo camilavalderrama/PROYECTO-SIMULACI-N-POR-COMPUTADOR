@@ -29,11 +29,12 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Angulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Velocidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Xin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Yin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Piso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,11 +96,14 @@ Partial Class Form1
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad, Me.Column1})
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad, Me.Xin, Me.Yin})
         Me.DataGridView2.Location = New System.Drawing.Point(1080, 48)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(244, 296)
         Me.DataGridView2.TabIndex = 14
+        '
+        'BackgroundWorker1
+        '
         '
         'Angulo
         '
@@ -111,6 +115,16 @@ Partial Class Form1
         Me.Velocidad.HeaderText = "Velocidad"
         Me.Velocidad.Name = "Velocidad"
         '
+        'Xin
+        '
+        Me.Xin.HeaderText = "Xin"
+        Me.Xin.Name = "Xin"
+        '
+        'Yin
+        '
+        Me.Yin.HeaderText = "Yin"
+        Me.Yin.Name = "Yin"
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(209, 9)
@@ -119,14 +133,6 @@ Partial Class Form1
         Me.Button1.TabIndex = 15
         Me.Button1.Text = "Activar"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'BackgroundWorker1
-        '
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Altura"
-        Me.Column1.Name = "Column1"
         '
         'Form1
         '
@@ -162,9 +168,10 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents Button1 As Button
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Angulo As DataGridViewTextBoxColumn
     Friend WithEvents Velocidad As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Xin As DataGridViewTextBoxColumn
+    Friend WithEvents Yin As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

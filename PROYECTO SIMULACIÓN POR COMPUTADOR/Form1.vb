@@ -17,7 +17,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         circleX = New Random().Next(200, 501) ' Entre 200 y 500
-        circleY = PictureBox1.Height - New Random().Next(10, 30) ' Entre 100 y 300, invertido
+        circleY = PictureBox1.Height - New Random().Next(100, 300) ' Entre 100 y 300, invertido
         Console.WriteLine("X circulo: " & circleX & " Y circulo: " & circleY)
 
     End Sub
@@ -48,7 +48,8 @@ Public Class Form1
     End Sub
 
     Private Sub SimularProyectil(angulo As Double)
-
+        Console.WriteLine(angulo & " Angulo")
+        Console.WriteLine(velocidadInicial & " velocidad")
         Dim v0x, v0y, t As Double
         Dim x, y As Double
 
@@ -73,7 +74,8 @@ Public Class Form1
             PictureBox1.Invoke(Sub()
                                    DibujarTrayectorias(trayectorias)
                                End Sub)
-            If (((Math.Round(x) - circleX) <= 5 And (Math.Round(x) - circleX) >= -5) And (Math.Round(y) - circleY) <= 5 And (Math.Round(y) - circleY) >= -5) Then
+
+            If ((((Math.Round(x) - circleX) <= 10 And (Math.Round(x) - circleX) >= -1) And (Math.Round(y) - circleY) <= 10 And (Math.Round(y) - circleY) >= -10)) Then
                 ' Validar que el valor del angulo y la velocidad no existan en la tabla
                 Dim filaExistente As DataGridViewRow = BuscarFilaExistente(anguloActual, velocidadInicial)
                 If filaExistente Is Nothing Then
@@ -82,7 +84,7 @@ Public Class Form1
                     AlturaMaxima = (Math.Pow(v0y, 2) * Math.Pow(Math.Sin(anguloActual * Math.PI / 180), 2)) / (2 * g)
 
                     Me.BeginInvoke(Sub()
-                                       DataGridView2.Rows.Add(anguloActual, velocidadInicial, AlturaMaxima)
+                                       DataGridView2.Rows.Add(anguloActual, velocidadInicial, x, y)
                                    End Sub)
                     ' Aumentar la cantidad de intersecciones
                     anguloActual += 1
@@ -94,7 +96,7 @@ Public Class Form1
             If y >= 0 Then
 
                 If x >= distanciaMaximaX OrElse anguloActual > 60 Then
-                    If anguloActual > 60 And velocidadInicial >= 100 Then
+                    If anguloActual > 60 And velocidadInicial > 100 Then
                         PictureBox1.Invoke(Sub()
                                                Label3.Text = cantidadInterseccion
                                            End Sub)
@@ -134,52 +136,8 @@ Public Class Form1
         Return Nothing
     End Function
 
-    Public Function ObtenerDatosDataGridView2() As Tuple(Of DataTable, Double, Double)
-
-        Dim dt As New DataTable()
-
-        ' Agregar las columnas del DataGridView2
-        For Each columna As DataGridViewColumn In DataGridView2.Columns
-            dt.Columns.Add(columna.HeaderText)
-        Next
-
-        ' Agregar columnas adicionales
-        dt.Columns.Add("AlturaMaxima")
-        dt.Columns.Add("TiempoVuelo")
-        dt.Columns.Add("DistanciaMax")
 
 
-
-        For Each fila As DataGridViewRow In DataGridView2.Rows
-            Dim row As DataRow = dt.NewRow()
-            For Each celda As DataGridViewCell In fila.Cells
-                row(celda.ColumnIndex) = celda.Value
-            Next
-
-            ' Calcular las propiedades adicionales
-            AlturaMaxima = (Math.Pow(v0y, 2) * Math.Pow(Math.Sin(anguloActual * Math.PI / 180), 2)) / (2 * g)
-            TiempoVuelo = (2 * v0x * Math.Sin(anguloActual * Math.PI / 180)) / g
-
-
-            row("TiempoVuelo") = TiempoVuelo
-            row("DistanciaMax") = distanciaMaximaX
-            dt.Rows.Add(row)
-
-            ' Comparar y actualizar la fila con la mayor altura
-            If AlturaMaxima > AlturaMaxima Then
-                row("AlturaMaxima") = AlturaMaxima
-                AlturaMaxima = AlturaMaxima
-            End If
-
-            If alturaMinima < alturaMinima Then
-                row("AlturaMinima") = alturaMinima
-                alturaMinima = alturaMinima
-            End If
-        Next
-
-        Dim resultTuple As New Tuple(Of DataTable, Double, Double)(dt, AlturaMaxima, alturaMinima)
-        Return resultTuple
-    End Function
 
     Private Sub PictureBox1_Paint(sender As Object, e As PaintEventArgs) Handles PictureBox1.Paint
         ' Dibujar el circulo en la posicion aleatoria
@@ -201,4 +159,18 @@ Public Class Form1
 
         PictureBox1.Refresh()
     End Sub
+
+    Public Function ObtenerDatosDataGridView2Form1() As List(Of Tuple(Of Double, Double))
+        Dim datos As New List(Of Tuple(Of Double, Double))
+
+        For Each fila As DataGridViewRow In DataGridView2.Rows
+            Dim angulo As Double = Convert.ToDouble(fila.Cells("Angulo").Value)
+            Dim velocidad As Double = Convert.ToDouble(fila.Cells("Velocidad").Value)
+            datos.Add(New Tuple(Of Double, Double)(angulo, velocidad))
+        Next
+
+        Return datos
+    End Function
+
+
 End Class

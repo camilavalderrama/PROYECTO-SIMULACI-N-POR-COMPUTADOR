@@ -34,6 +34,16 @@ Partial Class Form2
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Angulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Velocidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AlturaMax = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TiempoVuelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DisX = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AnguloMin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VelocidadMin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AlturaMin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TvMin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Xmin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,9 +56,10 @@ Partial Class Form2
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(247, 98)
+        Me.Chart1.Location = New System.Drawing.Point(249, 72)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
@@ -62,7 +73,7 @@ Partial Class Form2
         Me.Chart2.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(247, 463)
+        Me.Chart2.Location = New System.Drawing.Point(249, 437)
         Me.Chart2.Name = "Chart2"
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
@@ -75,7 +86,8 @@ Partial Class Form2
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(796, 98)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Angulo, Me.Velocidad, Me.AlturaMax, Me.TiempoVuelo, Me.DisX})
+        Me.DataGridView1.Location = New System.Drawing.Point(740, 72)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(460, 280)
         Me.DataGridView1.TabIndex = 2
@@ -83,7 +95,8 @@ Partial Class Form2
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(796, 463)
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AnguloMin, Me.VelocidadMin, Me.AlturaMin, Me.TvMin, Me.Xmin})
+        Me.DataGridView2.Location = New System.Drawing.Point(740, 437)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(460, 280)
         Me.DataGridView2.TabIndex = 3
@@ -92,7 +105,7 @@ Partial Class Form2
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Maiandra GD", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(479, 29)
+        Me.Label1.Location = New System.Drawing.Point(481, 3)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(614, 32)
         Me.Label1.TabIndex = 4
@@ -102,11 +115,66 @@ Partial Class Form2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Maiandra GD", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(484, 406)
+        Me.Label2.Location = New System.Drawing.Point(486, 380)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(609, 32)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = " Trayectoria que interseca con la mínima altura"
+        '
+        'Angulo
+        '
+        Me.Angulo.HeaderText = "Angulo"
+        Me.Angulo.Name = "Angulo"
+        '
+        'Velocidad
+        '
+        Me.Velocidad.HeaderText = "Velocidad"
+        Me.Velocidad.Name = "Velocidad"
+        '
+        'AlturaMax
+        '
+        Me.AlturaMax.HeaderText = "AlturaMax"
+        Me.AlturaMax.Name = "AlturaMax"
+        '
+        'TiempoVuelo
+        '
+        Me.TiempoVuelo.HeaderText = "Tv"
+        Me.TiempoVuelo.Name = "TiempoVuelo"
+        '
+        'DisX
+        '
+        Me.DisX.HeaderText = "DisX"
+        Me.DisX.Name = "DisX"
+        '
+        'AnguloMin
+        '
+        Me.AnguloMin.HeaderText = "AnguloMin"
+        Me.AnguloMin.Name = "AnguloMin"
+        Me.AnguloMin.Width = 40
+        '
+        'VelocidadMin
+        '
+        Me.VelocidadMin.HeaderText = "VelocidadMin"
+        Me.VelocidadMin.Name = "VelocidadMin"
+        Me.VelocidadMin.Width = 40
+        '
+        'AlturaMin
+        '
+        Me.AlturaMin.HeaderText = "AlturaMin"
+        Me.AlturaMin.Name = "AlturaMin"
+        Me.AlturaMin.Width = 40
+        '
+        'TvMin
+        '
+        Me.TvMin.HeaderText = "TvMin"
+        Me.TvMin.Name = "TvMin"
+        Me.TvMin.Width = 40
+        '
+        'Xmin
+        '
+        Me.Xmin.HeaderText = "DxMin"
+        Me.Xmin.Name = "Xmin"
+        Me.Xmin.Width = 40
         '
         'Form2
         '
@@ -138,4 +206,14 @@ Partial Class Form2
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Angulo As DataGridViewTextBoxColumn
+    Friend WithEvents Velocidad As DataGridViewTextBoxColumn
+    Friend WithEvents AlturaMax As DataGridViewTextBoxColumn
+    Friend WithEvents TiempoVuelo As DataGridViewTextBoxColumn
+    Friend WithEvents DisX As DataGridViewTextBoxColumn
+    Friend WithEvents AnguloMin As DataGridViewTextBoxColumn
+    Friend WithEvents VelocidadMin As DataGridViewTextBoxColumn
+    Friend WithEvents AlturaMin As DataGridViewTextBoxColumn
+    Friend WithEvents TvMin As DataGridViewTextBoxColumn
+    Friend WithEvents Xmin As DataGridViewTextBoxColumn
 End Class
