@@ -2,7 +2,7 @@
 Public Class Form1
     Dim v0x, v0y, t As Double
     Dim g As Double = 9.81
-    Dim velocidadInicial As Double = 50
+    Dim velocidadInicial As Double = 100
     Dim x, y As Double
     Dim gBmp As Graphics
     Dim bmp As Bitmap
@@ -96,7 +96,7 @@ Public Class Form1
             If y >= 0 Then
 
                 If x >= distanciaMaximaX OrElse anguloActual > 60 Then
-                    If anguloActual > 60 And velocidadInicial > 100 Then
+                    If anguloActual > 60 And velocidadInicial >= 100 Then
                         PictureBox1.Invoke(Sub()
                                                Label3.Text = cantidadInterseccion
                                            End Sub)
