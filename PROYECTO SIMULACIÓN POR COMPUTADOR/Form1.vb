@@ -2,7 +2,7 @@
 Public Class Form1
     Dim v0x, v0y, t As Double
     Dim g As Double = 9.81
-    Dim velocidadInicial As Double = 100
+    Dim velocidadInicial As Double = 50
     Dim x, y As Double
     Dim gBmp As Graphics
     Dim bmp As Bitmap
