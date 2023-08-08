@@ -65,7 +65,7 @@ Public Class Form1
 
         distanciaMaximaX = (Math.Pow(velocidadInicial, 2) * Math.Sin((angulo * 2) * Math.PI / 180)) / g
         Do While x >= 0
-            t += 0.9
+            t += 1
             x = v0x * t
             y = PictureBox1.Height - (v0y * t - 0.5 * g * t ^ 2)
             Dim currentPoint As Point = New Point(CInt(x), CInt(y))
@@ -75,6 +75,7 @@ Public Class Form1
             PictureBox1.Invoke(Sub()
                                    DibujarTrayectorias(trayectorias)
                                End Sub)
+            Application.DoEvents()
 
             If ((((Math.Round(x) - circleX) <= 10 And (Math.Round(x) - circleX) >= -10) And (Math.Round(y) - circleY) <= 10 And (Math.Round(y) - circleY) >= -10)) Then
                 ' Validar que el valor del angulo y la velocidad no existan en la tabla
@@ -85,7 +86,7 @@ Public Class Form1
                     AlturaMaxima = (Math.Pow(v0y, 2) * Math.Pow(Math.Sin(anguloActual * Math.PI / 180), 2)) / (2 * g)
 
                     Me.BeginInvoke(Sub()
-                                       DataGridView2.Rows.Add(anguloActual, velocidadInicial, x, y)
+                                       DataGridView2.Rows.Add(anguloActual, velocidadInicial)
                                    End Sub)
                     ' Aumentar la cantidad de intersecciones
                     anguloActual += 1
@@ -159,6 +160,7 @@ Public Class Form1
         Next
 
         PictureBox1.Refresh()
+        Application.DoEvents()
     End Sub
 
     Public Function ObtenerDatosDataGridView2Form1() As List(Of Tuple(Of Double, Double))
